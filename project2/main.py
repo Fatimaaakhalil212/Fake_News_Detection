@@ -1,39 +1,3 @@
-# from fastapi import FastAPI, Form, Request
-# from fastapi.responses import HTMLResponse
-# from fastapi.templating import Jinja2Templates
-# from fastapi.staticfiles import StaticFiles
-# import joblib
-# import os  
-# import uvicorn
-
-# # This will get the absolute path of the directory where main.py is located
-# BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-
-# # Load the model and vectorizer
-# model = joblib.load(os.path.join(BASE_DIR, "model.pkl"))
-# vectorizer = joblib.load(os.path.join(BASE_DIR, "vectorizer.pkl"))
-
-# app = FastAPI()
-# templates = Jinja2Templates(directory="templates")
-
-# # Optional: serve static files like CSS
-# app.mount("/static", StaticFiles(directory="static"), name="static")
-
-# @app.get("/", response_class=HTMLResponse)
-# async def home(request: Request):
-#     return templates.TemplateResponse("index.html", {"request": request})
-
-# @app.post("/predict", response_class=HTMLResponse)
-# async def predict(request: Request, text: str = Form(...)):
-#     try:
-#         transformed_text = vectorizer.transform([text])  # Transform input text
-#         prediction = model.predict(transformed_text)[0]  # Predict label
-#         result = "Fake News" if prediction == 1 else "Real News"
-#     except Exception as e:
-#         result = f"Error: {str(e)}"
-#     return templates.TemplateResponse("index.html", {"request": request, "prediction": result, "request": request})
-
-
 from fastapi import FastAPI, Form, Request
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
